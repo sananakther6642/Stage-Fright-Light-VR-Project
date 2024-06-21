@@ -35,6 +35,7 @@ public class ImageGallery : MonoBehaviour
     {
         if (currentIndex < images.Length - 1)
         {
+            Debug.Log("in");
             currentIndex++;
             displayImage.sprite = images[currentIndex];
             UpdateButtonStates();
