@@ -1582,7 +1582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6117cc47867826745bb51cbbd4cc17e7, type: 3}
       propertyPath: m_Name
-      value: untitled (1)
+      value: LightsAndCanvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2511,7 +2511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 759867293}
   m_Layer: 0
-  m_Name: untitled (1)
+  m_Name: LightsAndCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2930,6 +2930,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1484325985}
   m_CullTransparentMesh: 1
+--- !u!1 &1518872111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518872113}
+  - component: {fileID: 1518872112}
+  m_Layer: 0
+  m_Name: LightController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1518872112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518872111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e92ed4502d9d945909d3e3b005fdee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lights:
+  - {fileID: 1112472099}
+  - {fileID: 2012943827}
+  - {fileID: 1673413013}
+  - {fileID: 372351566}
+  - {fileID: 595847298}
+  - {fileID: 3016881}
+  - {fileID: 1394141502}
+  - {fileID: 1705118468}
+  - {fileID: 1452040567}
+  constantIntensity: 0
+--- !u!4 &1518872113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518872111}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6517295, y: -1.1720977, z: -0.6720822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1569055025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,3 +3878,4 @@ SceneRoots:
   - {fileID: 1870626650}
   - {fileID: 1592459879}
   - {fileID: 638960284}
+  - {fileID: 1518872113}
