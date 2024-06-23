@@ -9,25 +9,33 @@ public class Switch : MonoBehaviour
     {
         index = PlayerPrefs.GetInt("index", 0);
         SetActiveBackground();
-        Debug.Log("Starting index: " + index);
+    }
+
+    void Update()
+    {
+        // Check for keyboard inputs
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Next();
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            Previous();
+        }
     }
 
     public void Next()
     {
-        Debug.Log("Next button pressed");
         index++;
         if (index >= background.Length) index = 0;
-        Debug.Log("Next index: " + index);
         SetActiveBackground();
     }
 
     public void Previous()
     {
-        Debug.Log("Previous button pressed");
         index--;
         if (index < 0)
             index = background.Length - 1;
-        Debug.Log("Previous index: " + index);
         SetActiveBackground();
     }
 
@@ -39,6 +47,5 @@ public class Switch : MonoBehaviour
         }
         PlayerPrefs.SetInt("index", index);
         PlayerPrefs.Save();
-        Debug.Log("SetActiveBackground called. Current index: " + index);
     }
 }
