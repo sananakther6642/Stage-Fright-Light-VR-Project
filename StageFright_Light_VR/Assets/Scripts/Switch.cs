@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Switch : MonoBehaviour
 {
-    public GameObject[] background;
+    public Image[] backgroundCanvas1; // Array for images on the first canvas
+    public Image[] backgroundCanvas2; // Array for images on the second canvas
     private int index;
 
     void Start()
@@ -27,7 +29,7 @@ public class Switch : MonoBehaviour
     public void Next()
     {
         index++;
-        if (index >= background.Length) index = 0;
+        if (index >= backgroundCanvas1.Length) index = 0;
         SetActiveBackground();
     }
 
@@ -35,16 +37,24 @@ public class Switch : MonoBehaviour
     {
         index--;
         if (index < 0)
-            index = background.Length - 1;
+            index = backgroundCanvas1.Length - 1;
         SetActiveBackground();
     }
 
     void SetActiveBackground()
     {
-        for (int i = 0; i < background.Length; i++)
+        // Set active background for Canvas 1
+        for (int i = 0; i < backgroundCanvas1.Length; i++)
         {
-            background[i].SetActive(i == index);
+            backgroundCanvas1[i].gameObject.SetActive(i == index);
         }
+
+        // Set active background for Canvas 2
+        for (int i = 0; i < backgroundCanvas2.Length; i++)
+        {
+            backgroundCanvas2[i].gameObject.SetActive(i == index);
+        }
+
         PlayerPrefs.SetInt("index", index);
         PlayerPrefs.Save();
     }
