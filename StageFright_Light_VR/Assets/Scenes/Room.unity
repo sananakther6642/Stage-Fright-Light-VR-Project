@@ -18336,6 +18336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 387226820}
+  - component: {fileID: 387226821}
   m_Layer: 0
   m_Name: allPeople
   m_TagString: Untagged
@@ -18398,6 +18399,27 @@ Transform:
   - {fileID: 1210101755}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &387226821
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387226819}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.8, y: 1.3, z: 6.19}
+  m_Center: {x: -14.79, y: 3.3, z: 8.47}
 --- !u!1 &387330284
 GameObject:
   m_ObjectHideFlags: 0
@@ -45238,6 +45260,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -45319,6 +45342,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 104.632, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 153f3ca83b5dd314faed1d874b33abe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audience: {fileID: 387226820}
+  slidesLaptop: {fileID: 1603451415}
+  slidesBeamer: {fileID: 1569055026}
 --- !u!1 &963287943
 GameObject:
   m_ObjectHideFlags: 0
@@ -75015,8 +75053,9 @@ GameObject:
   - component: {fileID: 1569055029}
   - component: {fileID: 1569055028}
   - component: {fileID: 1569055027}
+  - component: {fileID: 1569055030}
   m_Layer: 5
-  m_Name: CanvasO
+  m_Name: CanvasBeamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75109,6 +75148,27 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!65 &1569055030
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569055025}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.45, y: 2.05, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1569484196
 GameObject:
   m_ObjectHideFlags: 0
@@ -76376,8 +76436,9 @@ GameObject:
   - component: {fileID: 1603451418}
   - component: {fileID: 1603451417}
   - component: {fileID: 1603451416}
+  - component: {fileID: 1603451419}
   m_Layer: 5
-  m_Name: CanvasO
+  m_Name: CanvasLaptop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76470,6 +76531,27 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!65 &1603451419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1603451414}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.47, y: 0.34, z: 0.05}
+  m_Center: {x: 0, y: -0.01, z: 0}
 --- !u!1 &1604030927
 GameObject:
   m_ObjectHideFlags: 0
