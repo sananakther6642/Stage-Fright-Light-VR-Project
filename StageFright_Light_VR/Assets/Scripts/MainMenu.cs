@@ -14,4 +14,10 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
         Debug.Log("User Has Quit");
     }
+    public void Stats()
+    {
+        
+        Debug.Log("Stats");
+    }
+
 }
