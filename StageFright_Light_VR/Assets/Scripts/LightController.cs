@@ -11,7 +11,7 @@ public class LightController : MonoBehaviour {
     public bool constantIntensity = false;
 
     // Start intensity level
-    private float startIntensity = 0.1f;
+    private float startIntensity = 0f;
 
     // End intensity level
     private float endIntensity = 0.6f;
