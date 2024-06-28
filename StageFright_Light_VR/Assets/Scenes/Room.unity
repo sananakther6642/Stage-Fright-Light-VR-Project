@@ -73485,7 +73485,7 @@ MonoBehaviour:
   - {fileID: 1705118468}
   - {fileID: 1452040567}
   - {fileID: 1292451945}
-  constantIntensity: 0
+  constantIntensity: 1
 --- !u!4 &1518872113
 Transform:
   m_ObjectHideFlags: 0
