@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Newtonsoft.Json.Linq;
 using NativeWebSocket;
@@ -6,7 +6,7 @@ using NativeWebSocket;
 public class hyperateSocket : MonoBehaviour
 {
     public string websocketToken = "HfNvht2sfZvmrFAtTXg6j4nRx4A4FLPp8mKS2iGea9GQSU331OBvAGVdcjfQcuc5";
-    public string hyperateID = "internal-testing";
+    public string hyperateID = "2fe4ab";
 
     public Text heartRateText; // Assign this in the Inspector
 
@@ -59,7 +59,7 @@ public class hyperateSocket : MonoBehaviour
             // Update the heart rate text
             if (heartRateText != null)
             {
-                heartRateText.text = "Heart Rate: " + heartRate.ToString();
+                heartRateText.text = "♥️ " + heartRate.ToString();
             }
             else
             {
