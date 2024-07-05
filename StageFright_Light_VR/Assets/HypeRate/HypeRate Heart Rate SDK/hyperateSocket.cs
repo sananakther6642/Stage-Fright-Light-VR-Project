@@ -43,8 +43,8 @@ public class hyperateSocket : MonoBehaviour
 
         ConnectWebSocket();
 
-        // Initialize CSV file path
-        string date = DateTime.Now.ToString("yyyy-MM-dd");
+        // Initialize CSV file path with timestamp
+        string date = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
         csvFilePath = Path.Combine(Application.dataPath, $"{date}_HeartRateData.csv");
         CreateCSVFile();
     }
