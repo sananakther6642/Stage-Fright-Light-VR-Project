@@ -21,15 +21,23 @@ public class LineChart : MonoBehaviour
             // Load CSV data
             LoadCSVData();
 
-            // Normalize points to fit canvas
-            points = NormalizePoints(points);
+            // Check if there are any data points
+            if (points.Count > 0)
+            {
+                // Normalize points to fit canvas
+                points = NormalizePoints(points);
 
-            // Draw line chart
-            DrawLineChart();
+                // Draw line chart
+                DrawLineChart();
+            }
+            else
+            {
+                Debug.Log("No data points found in CSV file: " + csvFilePath);
+            }
         }
         else
         {
-            Debug.LogError("No CSV files found in directory: " + Application.dataPath);
+            Debug.Log("No CSV files found in directory: " + Application.dataPath);
         }
     }
 
@@ -83,6 +91,12 @@ public class LineChart : MonoBehaviour
 
     private List<Vector2> NormalizePoints(List<Vector2> points)
     {
+        if (points.Count == 0)
+        {
+            Debug.LogError("No data points to normalize.");
+            return points;
+        }
+
         float minX = points.Min(point => point.x);
         float maxX = points.Max(point => point.x);
         float minY = points.Min(point => point.y);
