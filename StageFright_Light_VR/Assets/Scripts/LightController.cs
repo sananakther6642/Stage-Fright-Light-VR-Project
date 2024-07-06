@@ -17,7 +17,7 @@ public class LightController : MonoBehaviour {
     private float endIntensity = 0.6f;
 
     // Time in seconds for the intensity to reach from startIntensity to endIntensity
-    private float duration = 20 * 60; // 20 minutes
+    private float duration = 5 * 60; // 20 minutes
 
     void Start()
     {
