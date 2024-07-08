@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     private int selectedIndex = 0;
     private string[] menuItems = { "Play", "Quit" };
 
+    private bool canNavigate = true;
+
     void Start()
     {
         GetDevices();
@@ -37,33 +39,53 @@ public class MainMenu : MonoBehaviour
 
     void Update()
     {
-        HandleThumbstickInput();
-        HandleTriggerInput();
-        HandleButtonInput();
-    }
+        bool inputReceived = false;
 
-    void HandleThumbstickInput()
-    {
-        Vector2 thumbstickValue;
-        if (leftController.TryGetFeatureValue(CommonUsages.primary2DAxis, out thumbstickValue))
+        // Handle thumbstick input for both controllers
+        inputReceived |= HandleThumbstickInput(leftController);
+        inputReceived |= HandleThumbstickInput(rightController);
+
+        // Handle trigger input
+        if (rightController != null)
         {
-            if (thumbstickValue.y > 0.5f)
-            {
-                selectedIndex = Mathf.Max(0, selectedIndex - 1);
-                Debug.Log("Selected: " + menuItems[selectedIndex]);
-            }
-            else if (thumbstickValue.y < -0.5f)
-            {
-                selectedIndex = Mathf.Min(menuItems.Length - 1, selectedIndex + 1);
-                Debug.Log("Selected: " + menuItems[selectedIndex]);
-            }
+            HandleTriggerInput(rightController);
+        }
+
+        if (inputReceived && canNavigate)
+        {
+            canNavigate = false;
+            StartCoroutine(ResetNavigateAfterDelay(0.5f)); // Add a delay to prevent rapid navigation
         }
     }
 
-    void HandleTriggerInput()
+    private bool HandleThumbstickInput(InputDevice controller)
+    {
+        if (controller == null) return false;
+
+        Vector2 thumbstickValue;
+        if (controller.TryGetFeatureValue(CommonUsages.primary2DAxis, out thumbstickValue))
+        {
+            if (thumbstickValue.y > 0.5f && canNavigate)
+            {
+                selectedIndex = Mathf.Max(0, selectedIndex - 1);
+                Debug.Log("Selected: " + menuItems[selectedIndex]);
+                return true;
+            }
+            else if (thumbstickValue.y < -0.5f && canNavigate)
+            {
+                selectedIndex = Mathf.Min(menuItems.Length - 1, selectedIndex + 1);
+                Debug.Log("Selected: " + menuItems[selectedIndex]);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void HandleTriggerInput(InputDevice controller)
     {
         bool triggerValue;
-        if (rightController.TryGetFeatureValue(CommonUsages.triggerButton, out triggerValue) && triggerValue)
+        if (controller.TryGetFeatureValue(CommonUsages.triggerButton, out triggerValue) && triggerValue)
         {
             switch (selectedIndex)
             {
@@ -77,20 +99,10 @@ public class MainMenu : MonoBehaviour
         }
     }
 
-    void HandleButtonInput()
+    private IEnumerator ResetNavigateAfterDelay(float delay)
     {
-        bool aButtonValue;
-        if (rightController.TryGetFeatureValue(CommonUsages.primaryButton, out aButtonValue) && aButtonValue)
-        {
-            SceneManager.LoadScene("MainMenu");
-            Time.timeScale = 0;
-        }
-
-        bool bButtonValue;
-        if (rightController.TryGetFeatureValue(CommonUsages.secondaryButton, out bButtonValue) && bButtonValue)
-        {
-            Time.timeScale = 1;
-        }
+        yield return new WaitForSeconds(delay);
+        canNavigate = true;
     }
 
     public void Play()
