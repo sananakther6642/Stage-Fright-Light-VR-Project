@@ -99,7 +99,7 @@ We welcome contributions to this project! To contribute:
 
 2. **Clone Your Fork**:
    ```sh
-   git clone https://github.com/yourusername/VRPresentationProject.git
+   git clone https://github.tik.uni-stuttgart.de/st157868/VRAR.git
    ```
 
 3. **Create a New Branch**:
