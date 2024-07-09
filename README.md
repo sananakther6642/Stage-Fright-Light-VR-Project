@@ -5,9 +5,7 @@ Welcome to the Stage Fright Light VR! This project allows you to create an immer
 ## Table of Contents
 - [Setup](#setup)
 - [Adding Your Own Slides](#adding-your-own-slides)
-- [Lighting Adjustments](#lighting-adjustments)
-  - [Constant Lighting](#constant-lighting)
-  - [Gradual Lighting](#gradual-lighting)
+- [Lighting Setup](#lighting-Setup)
 - [Main Menu Usage](#main-menu-usage)
 - [End Screen](#end-screen)
 - [Contributing](#contributing)
@@ -49,31 +47,22 @@ Welcome to the Stage Fright Light VR! This project allows you to create an immer
    - Add your `Image` objects to the `backgroundCanvas1` and `backgroundCanvas2` arrays.
    - Hint : Both arrays should contain similiar images
 
-## Lighting Adjustments
+## Lighting Setup
+
+In our Unity project, we provide two types of lighting: Constant and Gradual. Here's how you can set them up:
 
 ### Constant Lighting
 
-1. **Set Up Lighting**:
-   - Go to `Window` > `Rendering` > `Lighting Settings`.
-   - Adjust the `Ambient Light` and `Directional Light` settings as desired.
-
-2. **Apply Constant Lighting**:
-   - Ensure the `Environment Lighting` mode is set to `Color` or `Gradient`.
-   - Adjust the color and intensity to achieve the desired constant lighting effect.
+1. Open the Unity project and navigate to the room scene.
+2. In the Hierarchy panel on the left, select the `LightController` object.
+3. In the Inspector panel on the right, you will see a checkbox labeled `Constant Light`.
+4. Check this box to enable constant lighting in the scene.
 
 ### Gradual Lighting
 
-1. **Create a Light Object**:
-   - In the `Hierarchy`, create a new `Light` > `Directional Light` object.
-
-2. **Set Up Animation**:
-   - Go to `Window` > `Animation` > `Animation`.
-   - Select the `Directional Light` object and create a new Animation Clip.
-   - Animate the intensity and color properties over time for gradual changes.
-
-3. **Apply Animation**:
-   - Ensure the `Animation` component is attached to the `Directional Light` object.
-   - Configure the animation to play as required (e.g., looping, triggered by events).
+1. If you want gradual lighting, make sure the `Constant Light` checkbox is unchecked.
+2. Below the `Constant Light` checkbox, there is a text field labeled `duration`.
+3. Enter the desired duration (in seconds) for the gradual lighting into this field.
 
 ## Main Menu Usage
 
