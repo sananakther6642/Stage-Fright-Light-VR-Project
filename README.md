@@ -13,7 +13,7 @@ Welcome to the Stage Fright Light VR! This project allows you to create an immer
 
 ## Setup
 
-1. **Clone the Repository**:
+1. **Clone the Repository or open the unity package**:
    ```sh
    git clone https://github.tik.uni-stuttgart.de/st157868/VRAR.git
    cd VRAR/StageFright_Light_VR/
@@ -27,6 +27,22 @@ Welcome to the Stage Fright Light VR! This project allows you to create an immer
 3. **Set Up VR**:
    - Ensure you have the `XR Interaction Toolkit` installed via the Unity Package Manager.
    - Configure your project for VR usage under `Project Settings` > `XR Plugin Management`.
+
+4. **Open the Room Scene**:
+
+   After importing the Unity package, navigate to the Scenes folder and open the Room scene.
+
+5. **Main Menu Scene**:
+
+   If you want to see the main menu, open the Main Menu scene in the Scenes folder. In the main menu, use the mouse to interact with the buttons.
+
+6. **Running the Presentation**:
+
+   While in the Room scene and the presentation is running, you can press the Escape key on your keyboard to continue to the Results screen.
+
+7. **Results Screen**:
+
+   In the Results screen, you can press the Escape key again to end the project.
 
 ## Adding Your Own Slides
 
