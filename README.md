@@ -15,7 +15,7 @@ Welcome to the Stage Fright Light VR! This project allows you to create an immer
 
 1. **Clone the Repository or open the unity package**:
    ```sh
-   git clone https://github.tik.uni-stuttgart.de/st157868/VRAR.git
+   git clone [https://github.tik.uni-stuttgart.de/st157868/VRAR.git](https://github.com/sananakther6642/Stage-Fright-Light-VR-Project.git)
    cd VRAR/StageFright_Light_VR/
    ```
 
