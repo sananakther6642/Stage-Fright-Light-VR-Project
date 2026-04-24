@@ -1,132 +1,112 @@
 # Stage Fright Light VR Project
 
-Welcome to the Stage Fright Light VR! This project allows you to create an immersive VR experience with navigable slides, a main menu accessible via mouse, and an end screen that can be exited using the keyboard. Follow the instructions below to set up and customize your project.
+This repository contains a Unity VR presentation project. The Unity project is now flattened at the repository root, so the main Unity folders are visible immediately when you open the repo.
 
 ## Table of Contents
+- [Project Structure](#project-structure)
 - [Setup](#setup)
+- [Scene Flow](#scene-flow)
 - [Adding Your Own Slides](#adding-your-own-slides)
-- [Lighting Setup](#lighting-Setup)
+- [Lighting Setup](#lighting-setup)
 - [Main Menu Usage](#main-menu-usage)
 - [End Screen](#end-screen)
 - [Contributing](#contributing)
 
+## Project Structure
+
+- `README.md` - repository overview and setup notes
+- `LICENSE` - MIT license for the project
+- `Assets/` - scenes, scripts, media, and prefabs
+- `Packages/` - Unity package manifest and lockfile
+- `ProjectSettings/` - Unity project configuration
+- `packages.config` - legacy Unity package configuration file
 
 ## Setup
 
-1. **Clone the Repository or open the unity package**:
+1. Clone the repository and open the Unity project folder:
    ```sh
    git clone https://github.com/sananakther6642/Stage-Fright-Light-VR-Project.git
-   cd StageFright_Light_VR/
+   cd Stage-Fright-Light-VR-Project
    ```
 
-2. **Open in Unity**:
-   - Open Unity Hub.
-   - Click on `Open` and navigate to the cloned repository folder.
-   - Select the project to open it in Unity.
+2. Open the repository root in Unity Hub.
 
-3. **Set Up VR**:
-   - Ensure you have the `XR Interaction Toolkit` installed via the Unity Package Manager.
-   - Configure your project for VR usage under `Project Settings` > `XR Plugin Management`.
+3. Use Unity `2022.3.21f1` or a compatible 2022.3 LTS editor.
 
-4. **Open the Room Scene**:
+4. Let Unity restore packages from `Packages/manifest.json`.
 
-   After importing the Unity package, navigate to the Scenes folder and open the Room scene.
+5. Make sure the VR packages are installed. The project already references `XR Interaction Toolkit`, `XR Management`, and `OpenXR`.
 
-5. **Main Menu Scene**:
+## Scene Flow
 
-   If you want to see the main menu, open the Main Menu scene in the Scenes folder. In the main menu, use the mouse to interact with the buttons.
+The build order is intended to be:
 
-6. **Running the Presentation**:
+1. `MainMenu`
+2. `Room`
+3. `Room End`
 
-   While in the Room scene and the presentation is running, you can press the Escape key on your keyboard to continue to the Results screen.
-
-7. **Results Screen**:
-
-   In the Results screen, you can press the Escape key again to end the project.
+`MainMenu` starts the experience, `Room` contains the presentation, and `Room End` is the final scene before the application exits.
 
 ## Adding Your Own Slides
 
-1. **Prepare Your Slides**:
-   - Create images for each of your slides.
-   - Ensure the images are in a supported format (e.g., PNG, JPG).
+1. Prepare your slide images in a supported format such as PNG or JPG.
 
-2. **Import Slides into Unity**:
-   - Drag and drop your slide images into the `Assets` folder in Unity.
+2. Import the images into `Assets`.
 
-3. **Create Image Objects**:
-   - In the `Hierarchy` window, create a new `UI` > `Image` object for each slide.
-   - Assign your slide images to the `canvasBeamer`and `canvasLaptop` components.
+3. Create matching `UI > Image` objects for each slide if they are not already present.
 
-4. **Assign Slides to Switch Script**:
-   - Select the `MainMenuManager` GameObject in the `Hierarchy`.
-   - In the `Inspector`, find the `Switch` script component.
-   - Add your `Image` objects to the `backgroundCanvas1` and `backgroundCanvas2` arrays.
-   - Hint : Both arrays should contain similiar images
+4. Select the GameObject with the `Switch` script and assign your images to the `backgroundCanvas1` and `backgroundCanvas2` arrays.
+
+5. Keep both arrays aligned and the same length so the corresponding slides stay in sync.
+
+6. Use the left or right controller thumbstick to move between slides. In the editor, the left and right arrow keys also work.
 
 ## Lighting Setup
 
-In our Unity project, we provide two types of lighting: Constant and Gradual. Here's how you can set them up:
+The `LightController` script supports two lighting modes.
 
 ### Constant Lighting
 
-1. Open the Unity project and navigate to the room scene.
-2. In the Hierarchy panel on the left, select the `LightController` object.
-3. In the Inspector panel on the right, you will see a checkbox labeled `Constant Light`.
-4. Check this box to enable constant lighting in the scene.
+1. Select the `LightController` GameObject in the scene.
+
+2. Assign the lights you want to control in the `lights` array.
+
+3. Enable `constantIntensity` to keep the lights at their final intensity.
 
 ### Gradual Lighting
 
-1. If you want gradual lighting, make sure the `Constant Light` checkbox is unchecked.
-2. Below the `Constant Light` checkbox, there is a text field labeled `duration`.
-3. Enter the desired duration (in seconds) for the gradual lighting into this field.
+1. Disable `constantIntensity`.
+
+2. Set `duration` to control how long the intensity takes to ramp up.
+
+3. The script fades from `0` to `0.6` over the chosen duration.
 
 ## Main Menu Usage
 
-1. **Access Main Menu**:
-   - The main menu is designed to be navigated using a mouse.
+1. Navigate the menu with the VR controller thumbstick.
 
-2. **Interact with Menu Items**:
-   - Hover over menu items to highlight them.
-   - Click on "Play" to start the presentation.
-   - Click on "Quit" to exit the application.
+2. Move up or down to change the selection between `Play` and `Quit`.
+
+3. Pull the right controller trigger to activate the selected item.
 
 ## End Screen
 
-1. **Exit the Presentation**:
-   - At any point during the presentation, press the `Esc` key on your keyboard to end the experience and return to the main menu.
+1. Press `Esc` to advance to the next scene in the build order.
+
+2. When the last scene is reached, the application quits.
+
+3. In the Unity Editor, the final `Esc` press stops Play Mode instead of closing the editor.
 
 ## Contributing
 
-We welcome contributions to this project! To contribute:
+1. Create a feature branch from the latest main branch.
 
-1. **Fork the Repository**:
-   - Click on the `Fork` button at the top right of the repository page.
+2. Make your changes in the Unity project at the repository root.
 
-2. **Clone Your Fork**:
-   ```sh
-   git clone https://github.tik.uni-stuttgart.de/st157868/VRAR.git
-   ```
+3. Test the project in Unity before opening a pull request.
 
-3. **Create a New Branch**:
-   ```sh
-   git checkout -b feature/YourFeatureName
-   ```
-
-4. **Make Changes**:
-   - Implement your feature or bug fix.
-
-5. **Commit and Push**:
-   ```sh
-   git add .
-   git commit -m "Add feature or fix"
-   git push origin feature/YourFeatureName
-   ```
-
-6. **Create a Pull Request**:
-   - Go to the original repository on GitHub and create a pull request from your fork.
-
-
+4. Keep scene order, script field names, README instructions, and repository layout in sync when you make changes.
 
 ---
 
-Thank you for using the Stage Fright Light VR Project! We hope it provides an engaging and immersive experience for your presentations. If you encounter any issues or have any questions, feel free to open an issue on GitHub. Happy presenting!
+License: MIT. If you find a mismatch between the README and the Unity project, update both together so the repository structure and the documentation stay aligned.
