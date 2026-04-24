@@ -9,7 +9,7 @@ Welcome to the Stage Fright Light VR! This project allows you to create an immer
 - [Main Menu Usage](#main-menu-usage)
 - [End Screen](#end-screen)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## Setup
 
@@ -125,9 +125,7 @@ We welcome contributions to this project! To contribute:
 6. **Create a Pull Request**:
    - Go to the original repository on GitHub and create a pull request from your fork.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
